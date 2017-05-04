@@ -1,7 +1,10 @@
 # Ashoka Autolog
 GNU General Public License v3.0
 
-Note: You must have Microsoft Edge installed. If you download and run just 'Ashoka Autologin.py', make sure you've installed selenium.
+Note: You must have Microsoft Edge installed. If you download and run just 'Ashoka Autologin.py', make sure you've installed selenium, and have the Microsoft Edge webdriver in a folder C:\\Ashoka Autolog\
+You can download the webdriver from here: https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+
+The installer has both the webdriver and a standalone instance of python, with selenium installed.
 
 Ashoka Autolog v1.0
 
@@ -28,3 +31,5 @@ In case your login details change:
    Line 2 has your password
    Line 3 has your log-in delay
 3. Change whatever you need to, and save the file.
+
+Thanks to: Stack Overflow, Selenium, Winpython (for the standalone python) and Inno Setup (for the setup executable)
