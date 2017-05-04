@@ -1,17 +1,15 @@
-# v0.1 of Ashoka Autologin
+#v0.1 of Ashoka Autologin
 #This project is covered under GNU GPLv3 licence
-import urllib
-import urllib2
+import time
+import os
 import os.path
-import mechanize
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 login_page="http://10.1.0.100:8090/"
 password=""
 time_delay=""
 test_page="https://www.google.com"
-r=""
-
-br=mechanize.Browser()
 
 if os.path.isfile("Autologin_Data.txt")!=True:
     print "What is the username?"
@@ -23,20 +21,41 @@ if os.path.isfile("Autologin_Data.txt")!=True:
 
 
     save_file= open("Autologin_Data.txt","w")
-    save_file.write(username+'\n')
-    save_file.write(password+'\n')
+    save_file.write(username)
+    save_file.write('\n')
+    save_file.write(password)
+    save_file.write('\n')
     save_file.write(time_delay)
     save_file.close()
 
 save_file=open("Autologin_Data.txt","r")
-username=save_file.readline()
-password=save_file.readline()
-time_delay=save_file.readline()
+login_username=save_file.readline()
+login_password=save_file.readline()
+time_delay=int(save_file.readline())
 save_file.close()
 
-login_data=urllib.urlencode({'username':username,
-                             'password':password})
+while 1==1:
+    try:
+        browser = webdriver.Edge("C:\\Ashoka Autolog\MicrosoftWebDriver.exe")
+        browser.get(login_page)
 
-br.open(login_page,login_data)
+        main_window_handle = browser.current_window_handle
 
-br.click(btnSubmit)
+        send_username = browser.find_element_by_name("username").send_keys(login_username)
+
+        alert = browser.switch_to_alert()
+        alert.accept()
+
+        browser.switch_to.window(main_window_handle)
+        send_userpass = browser.find_element_by_name("password").send_keys(login_password)
+
+        browser.find_element_by_name("btnSubmit").click()
+    except :
+        pass
+
+    time.sleep(10)
+
+    os.system('taskkill /f /im MicrosoftWebDriver.exe')
+    os.system('taskkill /f /im MicrosoftEdge.exe')
+
+    time.sleep(60*60*time_delay)
