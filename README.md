@@ -11,7 +11,9 @@ Ashoka Autolog v1.0
 author: quagzlor
 email: quagzlor.d@gmail.com
 
-CAUTION: Your details are saved in plaintext. Anyone can open the file and read them.
+CAUTION: Your details are saved in plaintext. Anyone can open the file and read them. This is a program meant for convenience.
+
+Link to installer (hosted on sourceforge): https://sourceforge.net/projects/ashoka-autolog/
 
 When the program starts, a python command line window will open. DO NOT CLOSE THIS, else the program will end as well.
 
