@@ -1,6 +1,8 @@
 # Ashoka Autolog
 GNU General Public License v3.0
 
+Note: You must have Microsoft Edge installed. If you download and run just 'Ashoka Autologin.py', make sure you've installed selenium.
+
 Ashoka Autolog v1.0
 
 author: quagzlor
